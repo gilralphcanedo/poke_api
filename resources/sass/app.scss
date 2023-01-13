@@ -1,0 +1,183 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Custom Text Colors
+@import 'text-colors';
+
+// Custom Badge Colors
+@import 'badge-colors';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: $main-darker-blue;
+}
+
+.app-logo {
+  max-height: 50px;
+}
+
+.pokemon-search {
+  border-radius: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .pokemon-search {
+    max-width: 66.66%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .pokemon-search {
+    max-width: 50%;
+  }
+}
+
+.btn-main {
+  background-color: $main-yellow;
+  border-color: $main-yellow;
+  color: $main-dark-blue;
+  font-weight: 700;
+  &:hover {
+    color: $main-dark-blue;
+    background-color: darken($color: $main-yellow, $amount: 8%);
+    border-color: darken($color: $main-yellow, $amount: 8%);
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 0.85;
+}
+
+.card {
+  &--rounded {
+    border: 0;
+    border-radius: $primary-border-radius;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  &-body {
+    padding: 1rem;
+  }
+  &.pokemon-card {
+    cursor: pointer;
+  }
+}
+
+.pokemon-card {
+  position: relative;
+  text-align: center;
+  .favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    & > svg:hover {
+      stroke: #F9A825;
+    }
+    &.favorited > svg {
+      stroke: #F9A825;
+      fill: #F9A825;
+    }
+    & > svg {
+      stroke: #424242;
+    }
+  }
+  .image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 0.5rem;
+  }
+  .name {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 0;
+  }
+  .id {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+}
+
+.modal {
+  &.pokemon-detail {
+    color: #ffffff;
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #ffffff;
+      opacity: 1;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+    .image {
+      display: block;
+      max-width: 250px;
+      max-height: 250px;
+      margin-inline: auto;
+    }
+    .name {
+      text-transform: capitalize;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .type {
+      max-width: fit-content;
+      margin-inline: auto;
+    }
+    .height, .weight {
+      color: $main-yellow;
+      font-weight: 700;
+    }
+    .stats-wrapper {
+      td {
+        border-top: none;
+        vertical-align: middle;
+      }
+      .stat-name {
+        color: #BDBDBD;
+        text-transform: capitalize;
+      }
+      .stat-value {
+        color: #ffffff;
+        text-align: center;
+      }
+      .stat-name, .stat-value {
+        width: 100px;
+      }
+      .progress-stat {
+        border-radius: 34px;
+        background-color: rgba(200, 198, 199, 0.15);
+        .progress-bar {
+          border-radius: 34px;
+          background-color: #C8C6C7;
+        }
+        &.special-attack .progress-bar,
+        &.special-defense .progress-bar {
+          background-color: $main-yellow;
+        }
+      }
+    }
+  }
+  .modal-content {
+    background-color: $main-dark-blue;
+    border-radius: $primary-border-radius;
+  }
+}
+
+.badge.pokemon-type {
+  font-size: 80%;
+  padding: 0.5rem 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
